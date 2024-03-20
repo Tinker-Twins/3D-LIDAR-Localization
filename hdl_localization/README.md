@@ -1,6 +1,6 @@
 # hdl_localization
 
-***hdl_localization*** is a ROS package for real-time 3D localization using a 3D LIDAR, such as HDL32e or VLP16. This package performs Unscented Kalman Filter-based pose estimation. It first estimates  the sensor pose from IMU data (IMU-based pose prediction is optional, if disabled, the system uses a constant velocity model) implemented on the LIDAR, and then performs multi-threaded NDT scan matching between a global map point cloud and input sensor point clouds to correct the estimated pose.
+***hdl_localization*** is a ROS package for real-time 3D localization using a 3D LIDAR, such as HDL32e or VLP16. This package performs Unscented Kalman Filter-based pose estimation. It first estimates the sensor pose from IMU data (IMU-based pose prediction is optional, if disabled, the system uses a constant velocity model) implemented on the LIDAR, and then performs multi-threaded NDT scan matching between a global map point cloud and input sensor point clouds to correct the estimated pose.
 
 ## Dependencies
 ***hdl_localization*** requires the following libraries:
@@ -43,7 +43,7 @@ cd ROS1_Workspace
 - ***/relocalize*** (std_srvs/Empty)
   - Reset the sensor pose with the global localization result
 
-## Example
+## Execution
 
 Open a terminal and launch `hdl_localization`.
 ```bash
