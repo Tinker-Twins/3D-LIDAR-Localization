@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>fast_gicp</name>
+  <version>0.1.0</version>
+  <description>A collection of fast point cloud registration algorithms</description>
+
+  <maintainer email="csamak@clemson.edu">Chinmay Samak</maintainer>
+  <maintainer email="tsamak@clemson.edu">Tanmay Samak</maintainer>
+  <maintainer email="k.koide@aist.go.jp">Kenji Koide</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+
+  <build_depend>ros_environment</build_depend>
+
+  <depend>libpcl-all-dev</depend>
+  <depend>eigen</depend>
+
+  <export>
+    <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+  </export>
+  
+</package>

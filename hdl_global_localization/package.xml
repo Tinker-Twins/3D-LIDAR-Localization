@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hdl_global_localization</name>
+  <version>0.1.0</version>
+  <description>Global localization using high density 3D LIDARs</description>
+
+  <maintainer email="csamak@clemson.edu">Chinmay Samak</maintainer>
+  <maintainer email="tsamak@clemson.edu">Tanmay Samak</maintainer>
+  <maintainer email="k.koide@aist.go.jp">Kenji Koide</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>pcl_ros</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>message_generation</depend>
+  <depend>libopencv-dev</depend>
+
+  <export>
+  </export>
+
+</package>
