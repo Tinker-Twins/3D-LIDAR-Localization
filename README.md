@@ -6,16 +6,6 @@ ROS Packages for Real-Time 3D LIDAR Based Localization using Normal Distribution
 
 This localization algorithm performs Unscented Kalman Filter (UKF) based pose estimation. It first estimates the sensor pose from IMU data (IMU-based pose prediction is optional, if disabled, the system uses a constant velocity model) implemented on the LIDAR, and then performs multi-threaded NDT scan matching between a global map point cloud and input sensor point clouds to correct the estimated pose.
 
-## Prerequisites [For CUDA-Accelerated NDT Algorithm]
-- Download and install NVIDIA drivers for Ubuntu [Tested with `nvidia-driver-525` for Ubuntu 20.04 installed via `Software & Updates` GUI]
-- Download and install CUDA Toolkit for Ubuntu [[Tested with `CUDA Toolkit 11.6` for Ubuntu 20.04](https://developer.nvidia.com/cuda-11-6-2-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local)]
-- Set up the development environment by modifying the `PATH` and `LD_LIBRARY_PATH` variables:
-    ```bash
-    # CUDA
-    export PATH=/usr/local/cuda/bin:$PATH
-    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-    ```
-
 ## Dependencies
 ***hdl_localization*** requires the following libraries:
 - PCL
@@ -40,6 +30,18 @@ cd ROS1_Workspace
     ```bash
     catkin_make -DCMAKE_BUILD_TYPE=Release -DBUILD_VGICP_CUDA=ON
     ```
+    
+    > ### Prerequisites for CUDA-Accelerated NDT Algorithm
+    
+    - Install NVIDIA drivers for Ubuntu [Tested with `nvidia-driver-525` for Ubuntu 20.04 via `Software & Updates` GUI]
+    - Install CUDA Toolkit for Ubuntu [[Tested with `CUDA Toolkit 11.6` for Ubuntu 20.04](https://developer.nvidia.com/cuda-11-6-2-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local)]
+    - Set up the development environment by modifying the `PATH` and `LD_LIBRARY_PATH` variables in `~/.bashrc`:
+  
+        ```bash
+        # CUDA
+        export PATH=/usr/local/cuda/bin:$PATH
+        export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+        ```
 
 ## Configuration
 - All configurable parameters are listed in `launch/hdl_localization.launch`.
