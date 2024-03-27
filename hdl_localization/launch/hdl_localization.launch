@@ -16,6 +16,8 @@
   <arg name="enable_robot_odometry_prediction" value="false" />
   <arg name="robot_odom_frame_id" value="odom" />
   <arg name="plot_estimation_errors" value="false" />
+  <!-- filter pose w.r.t. where robot starts instead of map frame -->
+  <arg name="filter_pose" value="true" />
 
   <include file="$(find hdl_global_localization)/launch/hdl_global_localization.launch" if="$(arg use_global_localization)" />
 
@@ -68,7 +70,10 @@
 
   <node pkg="hdl_localization" type="plot_status.py" name="plot_estimation_errors" if="$(arg plot_estimation_errors)" />
 
-  <!-- Rviz-->
+  <!-- odom filter -->
+  <node pkg="hdl_localization" type="pose_filter.py" name="pose_filter" output="screen" if="$(arg filter_pose)" />
+
+  <!-- rviz -->
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hdl_localization)/rviz/hdl_localization.rviz" />
 
 </launch>
