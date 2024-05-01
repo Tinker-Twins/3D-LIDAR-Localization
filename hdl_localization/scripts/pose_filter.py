@@ -41,6 +41,8 @@ class PoseFilter:
         self.tf_broadcaster = None
         self.filtered_pose_msg = None
         self.filtered_pose_pub = None
+        self.x_offset = 5.000
+        self.y_offset = -20.0
 
     def init_pose_callback(self, msg):
         self.init_pose = msg.pose.pose
@@ -87,8 +89,9 @@ class PoseFilter:
         # print(np.round(odom_T_velodyne, 3))
 
         # Generate and publish `Pose2D` message
-        self.filtered_pose_msg.x = odom_T_velodyne.item((0, 2))
-        self.filtered_pose_msg.y = odom_T_velodyne.item((1, 2))
+        
+        self.filtered_pose_msg.x = odom_T_velodyne.item((0, 2)) + self.x_offset
+        self.filtered_pose_msg.y = odom_T_velodyne.item((1, 2)) + self.y_offset
         self.filtered_pose_msg.theta = np.arctan2(odom_T_velodyne.item((1, 0)), odom_T_velodyne.item((1, 1)))
         self.filtered_pose_pub.publish(self.filtered_pose_msg)
 
